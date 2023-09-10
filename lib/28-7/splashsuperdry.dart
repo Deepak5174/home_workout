@@ -36,6 +36,7 @@ class _superdryState extends State<superdry> {
             Image.asset("assets/icons/superdry.png"),
             // ),
           ],
+          
         ),
       ),
     );

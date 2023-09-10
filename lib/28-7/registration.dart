@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:home_workout/28-7/Home.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:home_workout/28-7/superdrylogin.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -113,7 +115,6 @@ class _loginState extends State<login> {
                         pass = password;
                         // Password = Password;
                         if (password!.isEmpty || password.length < 6) {
-
                           return 'invalid password';
                         }
                       },
@@ -147,6 +148,19 @@ class _loginState extends State<login> {
                       obscureText: nopasswordvisibility,
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.password),
+                        suffixIcon: IconButton(onPressed: (){
+                          setState(() {
+                            if (nopasswordvisibility==true) {
+                              nopasswordvisibility=false;
+                              
+                            }else{
+                              nopasswordvisibility=true;
+                            }
+                          });
+                        }, icon: Icon(nopasswordvisibility==true?
+                        Icons.visibility_off_sharp
+                        :Icons.visibility
+                        )),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -190,6 +204,15 @@ class _loginState extends State<login> {
                   // },
                   //  child: Text("not a user")
                   //  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 300,bottom: 200),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => superdrylogin()));
+                        },
+                        icon: const FaIcon(FontAwesomeIcons.backward)),
+                  )
                 ],
               )),
         ),

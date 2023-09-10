@@ -1,16 +1,19 @@
+// ignore_for_file: unused_import, depend_on_referenced_packages, camel_case_types, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:home_workout/28-7/Home.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class login extends StatefulWidget {
-  const login({super.key});
+class signup extends StatefulWidget {
+  
+  const signup({super.key});
 
   @override
-  State<login> createState() => _loginState();
+  State<signup> createState() => _signupState();
 }
 
-class _loginState extends State<login> {
+class _signupState extends State<signup> {
   var formkey = GlobalKey<FormState>();
   bool nopasswordvisibility = true;
   bool passvisibility = true;
@@ -21,6 +24,7 @@ class _loginState extends State<login> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
+        // ignore: avoid_unnecessary_containers
         child: Container(
           //  decoration: BoxDecoration(
           //     image: DecorationImage(
@@ -146,6 +150,17 @@ class _loginState extends State<login> {
                     child: TextFormField(
                       obscureText: nopasswordvisibility,
                       decoration: InputDecoration(
+                        suffixIcon: IconButton(onPressed: (){
+                          setState(() {
+                            if (nopasswordvisibility==true) {
+                              nopasswordvisibility=false;}else{
+                                nopasswordvisibility= true;
+                              
+                            }
+                          });
+                        }, icon: Icon(nopasswordvisibility==true
+                        ?Icons.visibility_off_sharp:Icons.visibility
+                        )),
                         prefixIcon: Icon(Icons.password),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
@@ -190,6 +205,7 @@ class _loginState extends State<login> {
                   // },
                   //  child: Text("not a user")
                   //  ),
+                  
                 ],
               )),
         ),
@@ -198,8 +214,8 @@ class _loginState extends State<login> {
   }
 }
 
-// void main() {
-//   runApp(MaterialApp(
-//     home: login(),
-//   ));
-// }
+void main() {
+  runApp(MaterialApp(
+    home: signup(),
+  ));
+}

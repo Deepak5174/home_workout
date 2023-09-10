@@ -51,6 +51,8 @@ dev_dependencies:
   readmore: ^2.2.0
   loading_animation_widget: ^1.2.0+4
   flutter_overlay_loader: ^2.0.0
+  google_maps_flutter: ^2.5.0
+  shared_preferences: ^2.2.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
