@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
- import 'package:home_workout/28-7/superdrylogin.dart';
+ import 'package:home_workout/28-7%20splash%20login/superdrylogin.dart';
 
 class superdry extends StatefulWidget {
   const superdry({super.key});

@@ -64,15 +64,13 @@ class _shrineState extends State<shrine> {
         ),
         body: GridView.custom(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              
               crossAxisCount: 2,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20,
-               childAspectRatio: 1,
+              childAspectRatio: 1,
             ),
             childrenDelegate: SliverChildListDelegate(
               List.generate(
-              
                 8,
                 (index) =>
                     //  Padding(
@@ -85,11 +83,9 @@ class _shrineState extends State<shrine> {
                         Image.network(
                           image[index],
                           height: 100,
-                          
                         ),
                         ListTile(
                           title: Text(item[index]),
-                          
                           subtitle: Text(price[index]),
                         )
                       ],

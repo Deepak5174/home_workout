@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:home_workout/28-7/Home.dart';
+import 'package:home_workout/28-7%20splash%20login/Home.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class signup extends StatefulWidget {
