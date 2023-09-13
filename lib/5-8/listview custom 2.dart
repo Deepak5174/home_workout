@@ -9,7 +9,7 @@ class customlistview2 extends StatelessWidget {
       body: ListView.custom(
           childrenDelegate: SliverChildBuilderDelegate(
               (context, index) => Container(
-                  height: 1 00,
+                  height: 100,
                   child: Card(
                     
                       
