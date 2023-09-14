@@ -27,8 +27,8 @@ class _superdryState extends State<superdry> {
         decoration: BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                    "https://image1.superdry.com/static/images/optimised/upload9223368955666113562.jpg"))),
+                image: AssetImage(
+                    "assets/icons/superdy background.jpg"))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
