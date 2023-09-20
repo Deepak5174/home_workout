@@ -3,7 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Stag_grid extends StatelessWidget {
-  const Stag_grid({super.key});
+  const Stag_grid({super.key, required Color color1});
 
   @override
   Widget build(BuildContext context) {

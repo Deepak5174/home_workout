@@ -25,7 +25,7 @@ class _sqfhomeState extends State<sqfhome> {
           ),
           ElevatedButton(onPressed: () {
              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>sqf_login()));
-          }, child: Text("Log in ")),
+          }, child: Text("Log in  ")),
           Text(
             "or",
             style: TextStyle(fontSize: 15),

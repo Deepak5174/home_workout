@@ -65,33 +65,33 @@ class whatsapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 65, 170, 69),
-        title: const Text("Whats app"),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
-        PopupMenuButton(itemBuilder: (context){
-          return[
-            const PopupMenuItem(child: Card(
-              child: ListTile(title: Text("Settings"),
-              leading: Icon(Icons.settings),
-              ),
-            )),
-            const PopupMenuItem(child: Card(
-              child: ListTile(
-                title: Text("About"),
-                leading: Icon(Icons.info_outline),
-              ),
-            )),
-            const PopupMenuItem(child: Card(
-              child: ListTile(title: Text("More"),
-              leading: Icon(Icons.more),),
-            ))
-          ];
-        })
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: const Color.fromARGB(255, 65, 170, 69),
+      //   title: const Text("Whats app"),
+      //   actions: [
+      //     IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+      //     IconButton(onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
+      //   PopupMenuButton(itemBuilder: (context){
+      //     return[
+      //       const PopupMenuItem(child: Card(
+      //         child: ListTile(title: Text("Settings"),
+      //         leading: Icon(Icons.settings),
+      //         ),
+      //       )),
+      //       const PopupMenuItem(child: Card(
+      //         child: ListTile(
+      //           title: Text("About"),
+      //           leading: Icon(Icons.info_outline),
+      //         ),
+      //       )),
+      //       const PopupMenuItem(child: Card(
+      //         child: ListTile(title: Text("More"),
+      //         leading: Icon(Icons.more),),
+      //       ))
+      //     ];
+      //   })
+      //   ],
+      // ),
       body: ListView(
         children: List.generate(
             10,

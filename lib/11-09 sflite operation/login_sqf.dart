@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_workout/11-09%20sflite%20operation/sqflite%20curd/sqf_logorsign.dart';
 
 class sqf_login extends StatefulWidget {
   const sqf_login({super.key});
@@ -51,7 +52,7 @@ class _sqf_loginState extends State<sqf_login> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  controller: usercontroller,
+                  controller: passcontrller,
                   decoration: InputDecoration(
                     border:
                         OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
@@ -62,7 +63,9 @@ class _sqf_loginState extends State<sqf_login> {
                   ),
                 ),
               ),
-              ElevatedButton(onPressed: (){}, child: Text("Login"))
+              ElevatedButton(onPressed: (){
+                // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>sqfhome()));
+              }, child: Text("Login"))
             ],
           ),
         ),
