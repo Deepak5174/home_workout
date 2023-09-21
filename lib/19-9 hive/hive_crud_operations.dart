@@ -49,8 +49,16 @@ class _Hive_crudState extends State<Hive_crud> {
                     subtitle: Text(mytask['taskcontent']),
                     trailing: Wrap(
                       children: [
-                        IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
-                        IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
+                        IconButton(
+                            onPressed: () {
+                              showTask(context, mytask['id']);
+                            },
+                            icon: Icon(Icons.edit)),
+                        IconButton(
+                            onPressed: () {
+                              delatetask(mytask['id']);
+                            },
+                            icon: Icon(Icons.delete)),
                       ],
                     ),
                   ),
@@ -68,6 +76,12 @@ class _Hive_crudState extends State<Hive_crud> {
   final contennt_controller = TextEditingController();
 
   void showTask(BuildContext context, int? itemkey) {
+    if (itemkey != null) {
+      final existingtask =
+          task.firstWhere((element) => element['id'] == itemkey);
+      task_controller.text = existingtask['taskname'];
+      contennt_controller.text = existingtask['taskcontent'];
+    }
     //it simeler to id in sqflite
     showModalBottomSheet(
         isScrollControlled: true,
@@ -129,7 +143,10 @@ class _Hive_crudState extends State<Hive_crud> {
     load_or_read_task();
   }
 
-  void updateTasks(int? itemkey, Map<String, String> map) {}
+  void updateTasks(int? itemkey, Map<String, String> uptask) async {
+    await mybox.put(itemkey, uptask);
+    load_or_read_task();
+  }
 
   void load_or_read_task() {
     final task_from_hive = mybox.keys.map((Key) {
@@ -143,5 +160,12 @@ class _Hive_crudState extends State<Hive_crud> {
     setState(() {
       task = task_from_hive.reversed.toList();
     });
+  }
+
+  Future<void> delatetask(int itemkey) async {
+    await mybox.delete(itemkey);
+    load_or_read_task();
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text("successfully deleted !")));
   }
 }

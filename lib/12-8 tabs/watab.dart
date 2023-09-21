@@ -1,8 +1,8 @@
-import 'dart:math';
+
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:home_workout/assignment/stag%20grid.dart';
+
 import 'package:home_workout/assignment/whatsapp.dart';
 
 class whatsapp_tab extends StatelessWidget {
@@ -42,17 +42,30 @@ class whatsapp_tab extends StatelessWidget {
         ];
       })
       ],
-      bottom: TabBar(tabs: [
-        FaIcon(FontAwesomeIcons.userGroup),
-        Text("Status"),
-        Text("Chats"),
-        Text("Calls")
+      bottom: TabBar(
+        // indicatorSize: TabBarIndicatorSize.label,
+        labelPadding: EdgeInsets.zero,
+        tabs: [
+         
+        SizedBox(
+          width: MediaQuery.of(context).size.width*.10,
+          child: FaIcon(FontAwesomeIcons.userGroup)),
+        SizedBox(
+           width: MediaQuery.of(context).size.width*.30,
+          child: Text("Status")),
+        SizedBox(
+          width: MediaQuery.of(context).size.width*.30,
+          child: Text("Chats")),
+        SizedBox(
+          width: MediaQuery.of(context).size.width*.30,
+          child: Text("Calls"))
       ]),
       ),
       
       body: TabBarView(children: [
-      whatsapp()
-      Stag_grid(color1: color1)
+      whatsapp(),
+      
+      
       ]),
     ));
   }
