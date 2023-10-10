@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class playlist2 extends StatefulWidget {
   const playlist2({super.key});
 
@@ -7,6 +8,7 @@ class playlist2 extends StatefulWidget {
   State<playlist2> createState() => _playlist2State();
 }
 
+// ignore: camel_case_types
 class _playlist2State extends State<playlist2> {
   int index = 0;
   var image = [
@@ -25,7 +27,7 @@ class _playlist2State extends State<playlist2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 43, 42, 42),
+      backgroundColor: const Color.fromARGB(255, 43, 42, 42),
       // appBar: AppBar(
       //   title: Text("Playlist"),
       //   centerTitle: true,
@@ -40,7 +42,7 @@ class _playlist2State extends State<playlist2> {
               index = tappedindex;
             });
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home_filled,
@@ -56,14 +58,14 @@ class _playlist2State extends State<playlist2> {
       body: SafeArea(
           child: CustomScrollView(slivers: [
         SliverAppBar(
-          backgroundColor: Color.fromARGB(255, 43, 42, 42),
+          backgroundColor: const Color.fromARGB(255, 43, 42, 42),
           floating: true,
           pinned: true,
-          title: Text("Playlist"),
+          title: const Text("Playlist"),
           centerTitle: true,
           bottom: AppBar(
-            backgroundColor: Color.fromARGB(255, 43, 42, 42),
-            title: Container(
+            backgroundColor: const Color.fromARGB(255, 43, 42, 42),
+            title: SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: TextFormField(
@@ -71,7 +73,7 @@ class _playlist2State extends State<playlist2> {
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.grey,
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                     hintText: "Search here",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50)),
@@ -89,13 +91,13 @@ class _playlist2State extends State<playlist2> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         elevation: 8,
-                         margin: EdgeInsets.all(10),
+                         margin: const EdgeInsets.all(10),
                         child: Image.network(image[index],fit: BoxFit.fill,),
                         
                       ),
                     ),
                 childCount: 10),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 20,
               crossAxisSpacing: 25,
