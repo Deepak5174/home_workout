@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Stag_grid extends StatelessWidget {
-  const Stag_grid({super.key, required Color color1});
+class Staggrid1 extends StatelessWidget {
+  
 
   @override
   Widget build(BuildContext context) {
@@ -132,9 +132,10 @@ class Stag_grid extends StatelessWidget {
   }
 }
 
-void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Stag_grid(),
+void main(){
+  runApp(MaterialApp
+  (
+    debugShowCheckedModeBanner: false ,
+    home: Staggrid1(),
   ));
 }
