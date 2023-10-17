@@ -9,15 +9,13 @@ import 'package:path/path.dart' as path;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-   options: FirebaseOptions(
-          apiKey: "AIzaSyCsIYv9CqV-gZgQ3U2zfLnAP6dEUjEIm-A",
-          appId: "1:672420927310:android:945665053220c959f4b01f",
-          messagingSenderId: "",
-          projectId: "fir-p-80d7c",
-          storageBucket:"fir-p-80d7c.appspot.com" );
-
-
+  await Firebase.initializeApp(
+  options:FirebaseOptions(
+      apiKey: "AIzaSyCsIYv9CqV-gZgQ3U2zfLnAP6dEUjEIm-A",
+      appId: "1:672420927310:android:945665053220c959f4b01f",
+      messagingSenderId: "",
+      projectId: "fir-p-80d7c",
+      storageBucket: "fir-p-80d7c.appspot.com"));
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -53,14 +51,39 @@ class _fire_media_storageState extends State<fire_media_storage> {
                     icon: Icon(Icons.camera_alt),
                     label: Text("Camera")),
 
-                    SizedBox(width: 50,),
+                SizedBox(
+                  width: 50,
+                ),
                 //  Gallery
                 ElevatedButton.icon(
-                    onPressed: () => upload('camera'),
-                    icon: Icon(Icons.browse_gallery),
+                    onPressed: () => upload('gallery'),
+                    icon: Icon(Icons.photo),
                     label: Text("Browse")),
               ],
-            )
+            ),
+            Expanded(child: FutureBuilder(
+              future: loadMedia(), 
+              builder: (context,AsyncSnapshot<List<Map<String,dynamic>>> snapshot){
+                if (snapshot.connectionState==ConnectionState.done) {
+                  return ListView.builder(
+                    itemCount: snapshot.data?.length?? 0,
+                    itemBuilder: (context, index){
+                      final Map<String,dynamic>image = snapshot.data![index];
+                      return Card(
+                        child: ListTile(
+                          leading: Image.network(image['url']),
+                          title : Text(image['uplodedby']),
+                          subtitle: Text(image['description']),
+                          trailing:  IconButton(onPressed: ()=> deleteMedia(image['path']), icon: Icon(Icons.delete)),
+
+                        ),
+                      );
+                    });
+                  
+                }
+
+                return const Center(child: CircularProgressIndicator(),);
+              }),),
           ],
         ),
       ),
@@ -86,7 +109,7 @@ class _fire_media_storageState extends State<fire_media_storage> {
         await storage.ref(fileName).putFile(
             imagefile,
             SettableMetadata(customMetadata: {
-              'uploded by': 'its me xxxx',
+              'uplodedby': 'its me xxxx',
               'description': 'Some description',
             }));
 
@@ -98,4 +121,28 @@ class _fire_media_storageState extends State<fire_media_storage> {
       print(error);
     }
   }
+  
+Future<List<Map<String,dynamic>>>  loadMedia()async {
+  List<Map<String,dynamic>> images =[];
+  final ListResult result = await storage.ref().list();
+  final List<Reference> allfiles = result.items;
+  await Future.forEach(allfiles, (singlefile) async{
+    final String fileurl =await singlefile.getDownloadURL();
+    final FullMetadata metadata =await singlefile.getMetadata();
+
+
+     images.add({
+       'url':fileurl,
+       'path': singlefile.fullPath,
+       'uplodedby': metadata.customMetadata?['uplodedby']?? 'No Data',
+       'description': metadata.customMetadata?['description']?? 'No Description',
+      });
+    
+      });
+      return images;
+     
+
+}
+
+  deleteMedia(image) {}
 }

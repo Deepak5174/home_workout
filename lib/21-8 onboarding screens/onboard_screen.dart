@@ -13,7 +13,7 @@ class introscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     PageDecoration pageDecoration = PageDecoration(
-        titleTextStyle: GoogleFonts.aboreto(
+        titleTextStyle: GoogleFonts.aBeeZee(
             fontWeight: FontWeight.w600, fontSize: 50, color: Colors.white),
         bodyTextStyle: GoogleFonts.roboto(
             fontStyle: FontStyle.italic, fontSize: 30, color: Colors.white),
@@ -23,7 +23,7 @@ class introscreen extends StatelessWidget {
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
         )));
-    return IntroductionScreen(
+      return IntroductionScreen(
         pages: [
           PageViewModel(
               decoration: pageDecoration,

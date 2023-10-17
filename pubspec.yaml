@@ -54,6 +54,7 @@ dependencies:
   email_validator: ^2.1.17
   webview_flutter: ^4.2.4
   flutter_gutter: ^1.0.0
+  permission_handler: ^11.0.1 # use to check permission
   
   #api integration using http
   http: ^1.1.0
@@ -74,6 +75,7 @@ dependencies:
   firebase_storage: ^11.2.8
   image_picker: ^1.0.4
   path: ^1.8.3
+  provider: ^6.0.5
   
 
   # The following adds the Cupertino Icons font to your application.
